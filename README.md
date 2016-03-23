@@ -6,7 +6,7 @@ deploy/run/stop [TrafficGenerator](https://github.com/HKUST-SING/TrafficGenerato
 ## How do I get set up?
 * set the Groups into `hosts` file
 * set variables into `group_vars/all/vars.yaml`
-* copy your own configuration file into `run_clients/files/`. It has to be named consistently with the corresponding variable in `group_vars/all/vars.yaml` 
+* copy your own configuration file into `roles/run_clients/files/`. It has to be named consistently with the corresponding variable in `group_vars/all/vars.yaml` 
 
 ## How do I run it?
 `$ git clone git@github.com:filippo91/TrafficGenerator-ansible.git`

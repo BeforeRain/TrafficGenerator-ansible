@@ -1,0 +1,20 @@
+---
+- name: Copy config
+  copy: src={{ conf_file }} dest={{ base_path }}/conf/{{ conf_file }} owner={{ user_name }}
+
+- name: run clients
+  command: >
+            chdir="{{ base_path }}" 
+            ./bin/client 
+            -c {{ base_path }}/conf/"{{ conf_file }}" 
+            -l "{{ output_file }}" 
+            -s "{{ seed }}"
+            -b "{{ RX_bandwidth }}"
+            -t "{{ time_duration }}"
+  async: "{{ time_duration }}"
+  poll: 1
+  register: traffic_generator
+
+- name: parse results
+  shell: python "{{ parsing_script }}" "{{ output_file }}" >> "{{ results_file }}"
+  when: traffic_generator|success

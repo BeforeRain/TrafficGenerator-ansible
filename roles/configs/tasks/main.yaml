@@ -1,0 +1,6 @@
+---
+- name: clone repo from Github
+  git: repo="{{ repo }}" dest="{{ base_path }}" clone=yes depth=1 accept_hostkey=True
+
+- name: build Traffic Generator
+  command: chdir="{{ base_path }}" make 

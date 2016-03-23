@@ -1,0 +1,8 @@
+---
+- hosts: all
+  roles:
+    - configs
+
+- hosts: trafficGenerator-servers 
+  roles:
+    - run_servers

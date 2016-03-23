@@ -1,0 +1,6 @@
+[trafficGenerator-servers]
+sys-n03.info.ucl.ac.be
+
+[trafficGenerator-clients]
+sys-n04.info.ucl.ac.be
+sys-n07.info.ucl.ac.be

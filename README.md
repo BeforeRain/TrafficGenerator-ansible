@@ -21,6 +21,8 @@ To run the clients (it checks if servers are up, otherwise it will starts the se
 
 `$ ansible-playbook -i hosts roles/run.yaml`
 
+It will also copy the results' file locally, at the path specified through the `results_file_locally` variable in `group_vars/all/vars.yaml` if `cp_res_locally` is set `true`
+
 To stop servers:
 
 `$ ansible-playbook -i hosts roles/stop.yaml`

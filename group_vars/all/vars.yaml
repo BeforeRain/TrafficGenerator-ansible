@@ -1,10 +1,12 @@
-user_name: ubuntu
+username: ubuntu
 repo: git@github.com:HKUST-SING/TrafficGenerator.git
-base_path: /home/{{user_name}}/TrafficGenerator
+base_path: /home/{{username}}/TrafficGenerator
 conf_file: myconf.txt
-output_file: /home/{{user_name}}/TrafficGenerator/flows.txt
-parsing_script: /home/{{user_name}}/TrafficGenerator/src/script/result.py
-results_file: /home/{{user_name}}/TrafficGenerator/results.txt
+output_file: /home/{{username}}/TrafficGenerator/flows.txt
+parsing_script: /home/{{username}}/TrafficGenerator/src/script/result.py
+results_file: /home/{{username}}/TrafficGenerator/results
+results_file_locally: "$HOME/tc-results"
+cp_res_locally: true
 seed: 123
 RX_bandwidth: 800
 time_duration: 5

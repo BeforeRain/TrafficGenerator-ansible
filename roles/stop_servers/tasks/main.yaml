@@ -1,9 +1,9 @@
 ---
-- name: check server is up
+- name: Check servers are up
   command: pgrep -x server
   register: result
   ignore_errors: True
 
-- name: stop server
+- name: Stop servers
   shell: kill -9 "{{result.stdout}}"
   when: result|success

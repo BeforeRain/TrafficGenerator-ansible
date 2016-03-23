@@ -1,8 +1,8 @@
 ---
-- name: Copy config
-  copy: src={{ conf_file }} dest={{ base_path }}/conf/{{ conf_file }} owner={{ user_name }}
+- name: Copy configuration file
+  copy: src={{ conf_file }} dest={{ base_path }}/conf/{{ conf_file }} owner={{ username }}
 
-- name: run clients
+- name: Run clients
   command: >
             chdir="{{ base_path }}" 
             ./bin/client 
@@ -15,6 +15,13 @@
   poll: 1
   register: traffic_generator
 
-- name: parse results
+- name: Parse results
   shell: python "{{ parsing_script }}" "{{ output_file }}" >> "{{ results_file }}"
   when: traffic_generator|success
+
+- name: Copy results' file locally
+  local_action: >
+            command
+            scp "{{ username }}"@"{{ inventory_hostname }}":"{{ results_file }}" 
+            "{{ results_file_locally }}-{{ ansible_hostname }}"
+  when: "{{ cp_res_locally }}"

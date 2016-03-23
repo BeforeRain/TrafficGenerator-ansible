@@ -1,9 +1,9 @@
 ---
-- name: check server is up
+- name: Check if servers are up
   command: pgrep -x server
   register: result
   ignore_errors: True
 
-- name: run server
+- name: Run servers
   shell: chdir="{{ base_path }}" nohup ./bin/server -p "{{ server_port }}" &
   when: result|failed

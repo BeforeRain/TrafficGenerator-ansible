@@ -1,7 +1,7 @@
 # TrafficGenerator-ansible
 
 ## What is this project for?
-deploy/run/stop (TrafficGenerator)[https://github.com/HKUST-SING/TrafficGenerator] on the testbed using ansible.
+deploy/run/stop [TrafficGenerator](https://github.com/HKUST-SING/TrafficGenerator) on the testbed using ansible.
 
 ## How do I get set up?
 * set the Groups into `hosts` file

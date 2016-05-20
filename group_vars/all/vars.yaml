@@ -1,11 +1,13 @@
-username: ubuntu
+username: weiyu
 repo: https://github.com/HKUST-SING/TrafficGenerator.git
 base_path: /home/{{username}}/TrafficGenerator
+local_base_path: /home/{{username}}/TrafficGenerator-ansible
 conf_file: myconf.txt
 output_file: /home/{{username}}/TrafficGenerator/flows.txt
 parsing_script: /home/{{username}}/TrafficGenerator/src/script/result.py
-results_file: /home/{{username}}/TrafficGenerator/results
-results_file_locally: "$HOME/tc-results"
+result_file: /home/{{username}}/TrafficGenerator/results
+result_dir: results
+result_script: parse_results.sh
 cp_res_locally: true
 seed: 123
 RX_bandwidth: 800

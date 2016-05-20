@@ -6,7 +6,7 @@
   command: >
             chdir="{{ base_path }}" 
             ./bin/client 
-            -c {{ base_path }}/conf/"{{ conf_file }}" 
+            -c "{{ base_path }}"/conf/"{{ conf_file }}" 
             -l "{{ output_file }}" 
             -s "{{ seed }}"
             -b "{{ RX_bandwidth }}"
@@ -16,12 +16,11 @@
   register: traffic_generator
 
 - name: Parse results
-  shell: python "{{ parsing_script }}" "{{ output_file }}" >> "{{ results_file }}"
+  shell: python {{ parsing_script }} {{ output_file }} > {{ result_file }}
   when: traffic_generator|success
 
-- name: Copy results' file locally
-  local_action: >
-            command
-            scp "{{ username }}"@"{{ inventory_hostname }}":"{{ results_file }}" 
-            "{{ results_file_locally }}-{{ ansible_hostname }}"
-  when: "{{ cp_res_locally }}"
+- name: Fetch flow file
+  fetch: src={{ output_file }} dest={{ local_base_path }}/{{ result_dir }}
+
+- name: Fetch result files
+  fetch: src={{ result_file }} dest={{ local_base_path }}/{{ result_dir }}

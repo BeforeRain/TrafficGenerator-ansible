@@ -1,0 +1,4 @@
+- name: Calculate global results
+  command: >
+        chdir={{ result_dir }}
+        sh {{ result_script }}

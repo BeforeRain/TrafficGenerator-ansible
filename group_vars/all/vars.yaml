@@ -1,5 +1,5 @@
 username: ubuntu
-repo: git@github.com:HKUST-SING/TrafficGenerator.git
+repo: https://github.com/HKUST-SING/TrafficGenerator.git
 base_path: /home/{{username}}/TrafficGenerator
 conf_file: myconf.txt
 output_file: /home/{{username}}/TrafficGenerator/flows.txt

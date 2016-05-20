@@ -1,4 +1,7 @@
-server 192.168.100.3 5001
+server 192.168.1.1 5001
+server 192.168.1.2 5001
+server 192.168.1.3 5001
+server 192.168.1.4 5001
 req_size_dist conf/DCTCP_CDF.txt
 rate 0Mbps 10
 rate 500Mbps 30

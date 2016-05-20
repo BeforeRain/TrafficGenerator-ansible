@@ -1,6 +1,11 @@
 [trafficGenerator-servers]
-sys-n03.info.ucl.ac.be
+192.168.1.1
+192.168.1.2
+192.168.1.3
+192.168.1.4
 
 [trafficGenerator-clients]
-sys-n04.info.ucl.ac.be
-sys-n07.info.ucl.ac.be
+192.168.1.1
+192.168.1.2
+192.168.1.3
+192.168.1.4
